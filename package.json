@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "connect-mongodb-session": "^3.1.1"
+  }
+}
