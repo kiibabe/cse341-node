@@ -6,13 +6,13 @@ const sendgridTransport = require('nodemailer-sendgrid-transport');
 
 const User = require('../models/user');
 
-const transporter = nodemailer.createTransport(
-  sendgridTransport({
-    auth: {
-      api_key:
-    }
-  })
-);
+// const transporter = nodemailer.createTransport(
+//   sendgridTransport({
+//     auth: {
+//       api_key:
+//     }
+//   })
+// );
 
 exports.getLogin = (req, res, next) => {
   let message = req.flash('error');
@@ -96,15 +96,15 @@ exports.postSignup = (req, res, next) => {
           });
           return user.save();
         })
-        .then(result => {
-          res.redirect('/login');
-          return transporter.sendMail({
-            to: email,
-            from: 'kisetsuirie@gmail.com',
-            subject: 'Signup succeeded!',
-            html: '<h1>You successfully signed up!</h1>'
-          });
-        })
+        // .then(result => {
+        //   res.redirect('/login');
+        //   return transporter.sendMail({
+        //     to: email,
+        //     from: 'kisetsuirie@gmail.com',
+        //     subject: 'Signup succeeded!',
+        //     html: '<h1>You successfully signed up!</h1>'
+        //   });
+        // })
         .catch(err => {
           console.log(err);
         });
@@ -152,18 +152,18 @@ exports.postReset = (req, res, next) => {
         user.resetTokenExpiration = Date.now() + 3600000;
         return user.save();
       })
-      .then(result => {
-        res.redirect('/');
-        transporter.sendMail({
-          to: req.body.email,
-          from: 'kisetsuirie@gmail.com',
-          subject: 'Password reset',
-          html: `
-            <p>You requested a password reset</p>
-            <p>Click this <a href="https://cse341-node-kisetsu.herokuapp.com/reset/${token}">link</a> to set a new password.</p>
-          `
-        });
-      })
+      // .then(result => {
+      //   res.redirect('/');
+      //   transporter.sendMail({
+      //     to: req.body.email,
+      //     from: 'kisetsuirie@gmail.com',
+      //     subject: 'Password reset',
+      //     html: `
+      //       <p>You requested a password reset</p>
+      //       <p>Click this <a href="https://cse341-node-kisetsu.herokuapp.com/reset/${token}">link</a> to set a new password.</p>
+      //     `
+      //   });
+      // })
       .catch(err => {
         console.log(err);
       });
