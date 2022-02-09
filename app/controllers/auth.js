@@ -208,6 +208,7 @@ exports.postReset = (req, res, next) => {
         res.render('auth/reset', {
           path: '/reset',
           pageTitle: 'Reset Password',
+          email: req.body.email,
           errorMessage: null,
           resetMessage: `reset/${token}`
         })

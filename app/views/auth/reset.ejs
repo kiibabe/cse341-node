@@ -18,9 +18,10 @@
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <button class="btn" type="submit">Reset Password</button>
         </form>
+        <br>
         <% if (resetMessage) { %>
-            <div class="login-form">
-                <p>You requested a password reset</p>
+            <div class="login-form" style="border: 1px solid #000; padding: 1rem;">
+                <p>You requested a password reset for <%= email %></p>
                 <p>Click this <a href="<%= resetMessage %>">link</a> to set a new password.</p>
             </div>
         <% } %>
