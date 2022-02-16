@@ -26,4 +26,13 @@
     padding: 0.5rem;
     border: 1px solid #00695c;
     color: #00695c;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.orders__image img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
 }

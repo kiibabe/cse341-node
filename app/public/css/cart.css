@@ -23,3 +23,20 @@
   margin: 0;
 }
 
+.cart__item h1 {
+  width: 100px;
+}
+
+.cart__image img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+@media (min-width: 588px) {
+  .cart__image img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+}
